@@ -103,17 +103,30 @@ main {
     filter: hue-rotate(720deg);
   }
 }
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  legend strong {
+    color: transparent;
+    background-color: #038058;
+    background-image: linear-gradient(
+      45deg,
+      #038058 0%,
+      #002bff 33%,
+      #1abc88 66%,
+      #4d0606 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+}
 #home_img {
   margin-right: 2rem;
-  background: url("./src/home.png");
-  background-repeat: no-repeat;
+  background: url("./src/home.png") top left/ contain no-repeat;
   border-radius: 40px;
   width: 300px;
-  background-size: contain;
   height: 300px;
 }
 #home_img:hover {
-  background: url("./src/home.gif");
+  background: url("./src/home.gif") top left/ contain no-repeat;
   background-repeat: no-repeat;
   border-radius: 40px;
   width: 300px;
@@ -191,10 +204,16 @@ main {
   padding: 100px;
 }
 #web-sell-clothes {
-  position: relative;
-  background: url("./src/web-sell-clothes.png");
+  background: url("./src/GraphEditor.png");
   background-size: cover;
   background-repeat: no-repeat;
+  position: relative;
+}
+#ShootingPlane {
+  background: url("./src/ShootingPlane.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
 }
 #list-project div {
   overflow: hidden;
@@ -207,7 +226,9 @@ main {
   width: 100%;
   height: 100%;
   transition: 0.3s;
-  background-color: #fff7dd;
+  background-color: #aee0ed;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 #list-project div:hover div {
   left: 0;
@@ -279,4 +300,27 @@ footer {
   align-content: center;
   width: 100%;
   height: 40px;
+}
+
+/* Custom scroll bar */
+/* width */
+#list-project div::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+#list-project div::-webkit-scrollbar-track {
+  background: #a4f7ff;
+  border-radius: 50px;
+}
+
+/* Handle */
+#list-project div::-webkit-scrollbar-thumb {
+  background: #0151ff;
+  border-radius: 50px;
+}
+
+/* Handle on hover */
+#list-project di::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
